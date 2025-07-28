@@ -1,5 +1,6 @@
 import 'package:ecomerce/presentation/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ForgotPasswordView extends StatefulWidget {
   const ForgotPasswordView({super.key});
@@ -24,11 +25,11 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Create an account',
+                    'Forgot password',
                     style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    'Let’s create your account.',
+                    'Enter your email for the verification process. We will send 4 digits code to your email.',
                     style: TextStyle(fontSize: 16, color: Colors.grey[600]),
                   ),
 
@@ -70,9 +71,10 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                     child: PrimaryButton(
                       backgroundColor: Colors.black,
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {
+                        /* if (_formKey.currentState!.validate()) {
                           // Process the form data
-                        }
+                        } */
+                        context.pushNamed('verification_code');
                       },
                       child: Text('Send',
                           style: TextStyle(color: Colors.white)),

@@ -89,7 +89,9 @@ class _SignUpViewState extends State<SignUpView> {
               padding: const EdgeInsets.symmetric(vertical: 24),
               child: PrimaryButton(
                 backgroundColor: Color(0xFFCCCCCC),
-                onPressed: () {},
+                onPressed: () {
+                  context.pushReplacementNamed('home');
+                },
                 child: Text(
                   'Login',
                   style: TextStyle(color: Colors.white, fontSize: 16),
