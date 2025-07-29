@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "755222355963",
+    "project_id": "shoply-8ded7",
+    "storage_bucket": "shoply-8ded7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:755222355963:android:88c76044049a37683af55e",
+        "android_client_info": {
+          "package_name": "com.example.ecomerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "755222355963-lngcoj6hr0tnhcascgpjbn3oqumpsqkp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzYLj4IoQaOvZoF5pI4U_o-weYZCjNpH4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "755222355963-lngcoj6hr0tnhcascgpjbn3oqumpsqkp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "755222355963-h6poi75adeself47l5s2et25n7algeup.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ecomerce"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
