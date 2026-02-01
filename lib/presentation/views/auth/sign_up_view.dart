@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ecomerce/l10n/app_localizations.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
@@ -14,6 +15,7 @@ class SignUpView extends StatefulWidget {
 class _SignUpViewState extends State<SignUpView> {
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
@@ -21,24 +23,24 @@ class _SignUpViewState extends State<SignUpView> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Login to your account',
+              l10n.loginToAccount,
               style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
             ),
             Text(
-              'It’s great to see you again.',
+              l10n.welcomeBack,
               style: TextStyle(fontSize: 16, color: Colors.grey[600]),
             ),
-            
+
             Padding(
               padding: const EdgeInsets.only(top: 16, bottom: 4),
               child: Text(
-                'Email',
+                l10n.email,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
             TextFormField(
               decoration: InputDecoration(
-                hintText: 'Enter your email address',
+                hintText: l10n.enterEmailAddress,
                 hintStyle: TextStyle(color: Colors.grey),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -49,14 +51,14 @@ class _SignUpViewState extends State<SignUpView> {
             Padding(
               padding: const EdgeInsets.only(top: 16, bottom: 4),
               child: Text(
-                'Password',
+                l10n.password,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
             TextFormField(
               obscureText: true,
               decoration: InputDecoration(
-                hintText: 'Enter your password',
+                hintText: l10n.enterPassword,
                 hintStyle: TextStyle(color: Colors.grey),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -66,25 +68,25 @@ class _SignUpViewState extends State<SignUpView> {
             ),
             SizedBox(height: 12),
             Row(
-                children: [
-                  Text('Forgot your password? '),
-                  Text.rich(
-                    TextSpan(
-                      text: 'Reset your password',
-                      style: const TextStyle(
-                        color: Colors.black, // Azul estilo Facebook
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.underline,
-                      ),
-                      recognizer:
-                          TapGestureRecognizer()
-                            ..onTap = () {
-                              context.pushNamed('forgot_password');
-                            },
+              children: [
+                Text(l10n.forgotPassword),
+                Text.rich(
+                  TextSpan(
+                    text: l10n.resetYourPassword,
+                    style: const TextStyle(
+                      color: Colors.black, // Azul estilo Facebook
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.underline,
                     ),
+                    recognizer:
+                        TapGestureRecognizer()
+                          ..onTap = () {
+                            context.pushNamed('forgot_password');
+                          },
                   ),
-                ],
-              ),
+                ),
+              ],
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 24),
               child: PrimaryButton(
@@ -93,7 +95,7 @@ class _SignUpViewState extends State<SignUpView> {
                   context.pushReplacementNamed('home');
                 },
                 child: Text(
-                  'Login',
+                  l10n.login,
                   style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
               ),
@@ -107,7 +109,7 @@ class _SignUpViewState extends State<SignUpView> {
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 8),
-                    child: Text('Or'),
+                    child: Text(l10n.or),
                   ),
                   Expanded(
                     child: Divider(color: Color(0xFFE6E6E6), thickness: 1),
@@ -130,7 +132,7 @@ class _SignUpViewState extends State<SignUpView> {
                   ),
                   SizedBox(width: 8),
                   Text(
-                    'Sign up with Google',
+                    l10n.signUpWithGoogle,
                     style: TextStyle(color: Colors.black, fontSize: 16),
                   ),
                 ],
@@ -150,7 +152,7 @@ class _SignUpViewState extends State<SignUpView> {
                   ),
                   SizedBox(width: 8),
                   Text(
-                    'Sign up with Facebook',
+                    l10n.signUpWithFacebook,
                     style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
                 ],
@@ -166,12 +168,12 @@ class _SignUpViewState extends State<SignUpView> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Don\'t have an account? '),
+                  Text(l10n.dontHaveAccount, textAlign: TextAlign.center),
                   Text.rich(
                     TextSpan(
-                      text: 'Join',
+                      text: l10n.join,
                       style: const TextStyle(
-                        color: Colors.black, // Azul estilo Facebook
+                        color: Colors.black,
                         fontWeight: FontWeight.bold,
                         decoration: TextDecoration.underline,
                       ),

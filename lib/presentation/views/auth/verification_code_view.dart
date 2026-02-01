@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ecomerce/l10n/app_localizations.dart';
 
 class VerificationCodeView extends StatefulWidget {
   const VerificationCodeView({super.key});
@@ -78,32 +79,19 @@ class _VerificationCodeViewState extends State<VerificationCodeView> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Enter 4 Digit Code',
+            l10n.enterDigitCode,
             style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
           ),
-          Text.rich(
-            TextSpan(
-              style: TextStyle(fontSize: 16, color: Colors.grey[600]),
-              children: [
-                TextSpan(
-                  text:
-                      ' Enter 4 digit code that your receive on your\n email ',
-                ),
-                TextSpan(
-                  text: '(cody.fisher45@example.com).',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    color: Colors.black,
-                  ),
-                ),
-              ],
-            ),
+          Text(
+            l10n.enterDigitCodeSubtitle,
+            style: TextStyle(fontSize: 16, color: Colors.grey[600]),
           ),
           SizedBox(height: 40),
           Row(
@@ -116,7 +104,7 @@ class _VerificationCodeViewState extends State<VerificationCodeView> {
               child: SizedBox(
                 width: double.infinity,
                 child: Text(
-                  'Please enter all digits',
+                  l10n.pleaseEnterAllDigits,
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.red, fontSize: 14),
                 ),
@@ -127,10 +115,10 @@ class _VerificationCodeViewState extends State<VerificationCodeView> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Email not received?'),
+                Text(l10n.emailNotReceived),
                 Text.rich(
                   TextSpan(
-                    text: 'Resend code',
+                    text: l10n.resendCode,
                     style: const TextStyle(
                       color: Colors.black, // Azul estilo Facebook
                       fontWeight: FontWeight.bold,
@@ -159,7 +147,7 @@ class _VerificationCodeViewState extends State<VerificationCodeView> {
               }
             },
             child: Text(
-              'Continue',
+              l10n.continueButton,
               style: TextStyle(color: Colors.white, fontSize: 16),
             ),
           ),

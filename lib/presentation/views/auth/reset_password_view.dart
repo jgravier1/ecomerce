@@ -2,6 +2,7 @@ import 'package:ecomerce/presentation/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ecomerce/l10n/app_localizations.dart';
 
 class ResetPasswordView extends StatefulWidget {
   const ResetPasswordView({super.key});
@@ -12,6 +13,7 @@ class ResetPasswordView extends StatefulWidget {
 
 class _ResetPasswordViewState extends State<ResetPasswordView> {
   void _showSuccessDialog(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -30,7 +32,7 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
               SizedBox(height: 12),
 
               Text(
-                'Password Changed!',
+                l10n.passwordChanged,
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
@@ -38,7 +40,7 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
 
               // Segundo texto (descripción)
               Text(
-                'Your can now use your new password to login to your account.',
+                l10n.passwordChangedMessage,
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 14, color: Colors.grey[600]),
               ),
@@ -51,7 +53,7 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
                   //navigate to login screen
                   context.pushReplacementNamed('sign_up');
                 },
-                child: Text('Login', style: TextStyle(color: Colors.white)),
+                child: Text(l10n.login, style: TextStyle(color: Colors.white)),
               ),
             ],
           ),
@@ -62,6 +64,7 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -69,17 +72,17 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Reset Password',
+              l10n.resetPassword,
               style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
             ),
             Text(
-              'Set the new password for your account so you\n can login and access all the features.',
+              l10n.resetPasswordSubtitle,
               style: TextStyle(fontSize: 16, color: Colors.grey[600]),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 16, bottom: 4),
               child: Text(
-                'Password',
+                l10n.password,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
@@ -87,16 +90,16 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
               obscureText: true,
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter your password';
+                  return l10n.pleaseEnterPassword;
                 }
                 if (value.length < 8) {
-                  return 'Password must be at least 8 characters';
+                  return l10n.passwordMinLength;
                 }
                 if (!RegExp(r'[A-Z]').hasMatch(value)) {
-                  return 'Password must contain at least one uppercase letter';
+                  return l10n.passwordUppercase;
                 }
                 if (!RegExp(r'[!@#$%^&*(),.?":{}|<>]').hasMatch(value)) {
-                  return 'Password must contain at least one special character';
+                  return l10n.passwordSpecialChar;
                 }
                 return null;
               },
@@ -106,7 +109,7 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
                   borderRadius: BorderRadius.circular(8),
                   borderSide: BorderSide(color: Colors.grey),
                 ),
-                hintText: 'Enter your password',
+                hintText: l10n.enterPassword,
                 hintStyle: TextStyle(color: Colors.grey),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -116,7 +119,7 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
             Padding(
               padding: const EdgeInsets.only(top: 16, bottom: 4),
               child: Text(
-                'Password',
+                l10n.password,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
@@ -124,16 +127,16 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
               obscureText: true,
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter your password';
+                  return l10n.pleaseEnterPassword;
                 }
                 if (value.length < 8) {
-                  return 'Password must be at least 8 characters';
+                  return l10n.passwordMinLength;
                 }
                 if (!RegExp(r'[A-Z]').hasMatch(value)) {
-                  return 'Password must contain at least one uppercase letter';
+                  return l10n.passwordUppercase;
                 }
                 if (!RegExp(r'[!@#$%^&*(),.?":{}|<>]').hasMatch(value)) {
-                  return 'Password must contain at least one special character';
+                  return l10n.passwordSpecialChar;
                 }
                 return null;
               },
@@ -143,7 +146,7 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
                   borderRadius: BorderRadius.circular(8),
                   borderSide: BorderSide(color: Colors.grey),
                 ),
-                hintText: 'Enter your password',
+                hintText: l10n.enterPassword,
                 hintStyle: TextStyle(color: Colors.grey),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -157,7 +160,10 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
                 onPressed: () {
                   _showSuccessDialog(context);
                 },
-                child: Text('Continue', style: TextStyle(color: Colors.white)),
+                child: Text(
+                  l10n.continueButton,
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             ),
           ],
