@@ -1,6 +1,7 @@
 import 'package:ecomerce/presentation/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ecomerce/l10n/app_localizations.dart';
 
 class ForgotPasswordView extends StatefulWidget {
   const ForgotPasswordView({super.key});
@@ -14,6 +15,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -25,18 +27,18 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Forgot password',
+                    l10n.forgotPasswordTitle,
                     style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    'Enter your email for the verification process. We will send 4 digits code to your email.',
+                    l10n.forgotPasswordSubtitle,
                     style: TextStyle(fontSize: 16, color: Colors.grey[600]),
                   ),
 
                   Padding(
                     padding: const EdgeInsets.only(top: 16, bottom: 4),
                     child: Text(
-                      'Email',
+                      l10n.email,
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -46,11 +48,11 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                   TextFormField(
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter your email address';
+                        return l10n.pleaseEnterEmail;
                       }
                       final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
                       if (!emailRegex.hasMatch(value)) {
-                        return 'Please enter valid email address';
+                        return l10n.pleaseEnterValidEmail;
                       }
                       return null;
                     },
@@ -59,7 +61,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey),
                       ),
-                      hintText: 'Enter your email address',
+                      hintText: l10n.enterEmailAddress,
                       hintStyle: TextStyle(color: Colors.grey),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
@@ -76,8 +78,10 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                         } */
                         context.pushNamed('verification_code');
                       },
-                      child: Text('Send',
-                          style: TextStyle(color: Colors.white)),
+                      child: Text(
+                        l10n.send,
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ),
                 ],
