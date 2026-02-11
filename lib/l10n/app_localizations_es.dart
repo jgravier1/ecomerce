@@ -88,7 +88,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get logIn => 'Iniciar sesión';
 
   @override
-  String get loginToAccount => 'Inicia sesión en tu cuenta';
+  String get loginToAccount => 'Inicia sesión con tu cuenta';
 
   @override
   String get welcomeBack => 'Es genial verte de nuevo.';

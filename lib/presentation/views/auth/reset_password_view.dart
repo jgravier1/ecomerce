@@ -51,7 +51,7 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
                 backgroundColor: Colors.black,
                 onPressed: () {
                   //navigate to login screen
-                  context.pushReplacementNamed('sign_up');
+                  context.goNamed('sign_up');
                 },
                 child: Text(l10n.login, style: TextStyle(color: Colors.white)),
               ),

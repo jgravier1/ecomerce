@@ -51,7 +51,7 @@ class OnboardingView extends StatelessWidget {
           child: PrimaryButton(
             backgroundColor: Colors.black,
             onPressed: () {
-              context.pushReplacementNamed('authentication');
+              context.goNamed('authentication');
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,

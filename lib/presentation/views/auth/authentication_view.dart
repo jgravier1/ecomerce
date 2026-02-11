@@ -139,21 +139,21 @@ class _AuthenticationViewState extends State<AuthenticationView> {
                     ),
                   ),
                   SizedBox(height: 12),
-                  Row(
-                    children: [
-                      Text(l10n.agreeToTerms),
-                      Text.rich(
+                  Text.rich(
+                    TextSpan(
+                      style: TextStyle(color: Colors.black, fontSize: 14),
+                      children: [
+                        TextSpan(text: l10n.agreeToTerms),
                         TextSpan(
                           text: l10n.termsOfService,
                           style: const TextStyle(
-                            color: Colors.black, // Azul estilo Facebook
                             fontWeight: FontWeight.bold,
                             decoration: TextDecoration.underline,
                           ),
                           recognizer: TapGestureRecognizer()..onTap = () {},
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 24),
@@ -187,7 +187,7 @@ class _AuthenticationViewState extends State<AuthenticationView> {
                         Expanded(
                           child: Divider(
                             color: Color(0xFFE6E6E6),
-                            thickness: 1,
+                            thickness: 1.5,
                           ),
                         ),
                       ],
@@ -234,33 +234,36 @@ class _AuthenticationViewState extends State<AuthenticationView> {
                       ],
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      top: 48,
-                      left: 55,
-                      right: 55,
-                      bottom: 24,
-                    ),
-                    child: Expanded(
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 48, bottom: 24),
                       child: Row(
+                        mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.baseline,
+                        textBaseline: TextBaseline.alphabetic,
                         children: [
                           Text(
                             l10n.alreadyHaveAccount,
-                            textAlign: TextAlign.center,
+                            style: const TextStyle(fontSize: 14),
+                          ),
+                          Text(
+                            ' ',
+                            style: const TextStyle(fontSize: 14),
                           ),
                           Text.rich(
                             TextSpan(
                               text: l10n.logIn,
                               style: const TextStyle(
                                 color: Colors.black,
+                                fontSize: 14,
                                 fontWeight: FontWeight.bold,
                                 decoration: TextDecoration.underline,
                               ),
                               recognizer:
                                   TapGestureRecognizer()
                                     ..onTap = () {
-                                      context.pushReplacementNamed('sign_up');
+                                      context.pushNamed('sign_up');
                                     },
                             ),
                           ),
