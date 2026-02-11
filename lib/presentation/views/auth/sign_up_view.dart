@@ -1,3 +1,4 @@
+import 'package:ecomerce/presentation/widgets/google_sign_in_button.dart';
 import 'package:ecomerce/presentation/widgets/primary_button.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -138,26 +139,7 @@ class _SignUpViewState extends State<SignUpView> {
                       ),
                     ),
                     SizedBox(height: 16),
-                    PrimaryButton(
-                      borderColor: Colors.grey,
-                      backgroundColor: Colors.white,
-                      onPressed: () {},
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SvgPicture.asset(
-                            'assets/svg/google_icon.svg',
-                            width: 24,
-                            height: 24,
-                          ),
-                          SizedBox(width: 8),
-                          Text(
-                            l10n.signUpWithGoogle,
-                            style: TextStyle(color: Colors.black, fontSize: 16),
-                          ),
-                        ],
-                      ),
-                    ),
+                    const GoogleSignInButton(),
                     SizedBox(height: 16),
                     PrimaryButton(
                       backgroundColor: Color(0xFF1877F2),

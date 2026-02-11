@@ -1,3 +1,4 @@
+import 'package:ecomerce/config/di/injection_container.dart';
 import 'package:ecomerce/config/routes/app_router.dart';
 import 'package:ecomerce/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -12,6 +13,10 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+
+  setupDependencyInjection();
+
   runApp(const MainApp());
 }
 
