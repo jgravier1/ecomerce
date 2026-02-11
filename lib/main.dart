@@ -1,9 +1,22 @@
+import 'package:ecomerce/config/di/injection_container.dart';
 import 'package:ecomerce/config/routes/app_router.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:ecomerce/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:ecomerce/l10n/app_localizations.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: '.env');
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+
+  setupDependencyInjection();
+
   runApp(const MainApp());
 }
 
